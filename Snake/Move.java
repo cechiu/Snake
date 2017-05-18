@@ -1,40 +1,67 @@
-
-
 /**
- * Write a description of class Move here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Neha Kaki and Claire Chiu
+ * Final Project - Snake Game
+ * Move Class - allows snake to move using arrow keys on keyboard
  */
+
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
 public class Move
 {
-    /** description of instance variable x (add comment for each instance variable) */
-    private int x;
-
-    /**
-     * Default constructor for objects of class Move
-     */
-    public Move()
+    //used to change direction of snake
+    public void keyPressed(KeyEvent e)
     {
-        // initialise instance variables
-        x = 0;
+        //the key that was pressed
+        int key = e.getKeyCode();
+        
+        //what direction the snake is moving in
+        //(initially all are set at false)
+        boolean rightDirection = false;
+        boolean leftDirection = false;
+        boolean upDirection = false;
+        boolean downDirection = false;
+        
+        //if the left arrow key was pressed
+        //and snake is not moving right
+        if ((key == KeyEvent.VK_LEFT) && (!rightDirection))
+        {
+            //now snake will go left
+            leftDirection = true;
+            //all the directions the snake will NOT be going in
+            upDirection = false;
+            downDirection = false;
+            rightDirection = false;
+        }
+        
+        //cannot be else if because user must be able to
+        //press anything at any time
+        
+        //right
+        if ((key == KeyEvent.VK_RIGHT) && (!leftDirection))
+        {
+            rightDirection = true;
+            upDirection = false;
+            downDirection = false;
+            leftDirection = false;
+        }
+        
+        //up
+        if ((key == KeyEvent.VK_UP) && (!downDirection))
+        {
+            upDirection = true;
+            rightDirection = false;
+            leftDirection = false;
+            downDirection = false;
+        }
+        
+        //down
+        if ((key == KeyEvent.VK_DOWN) && (!upDirection))
+        {
+            downDirection = true;
+            rightDirection = false;
+            leftDirection = false;
+            upDirection = false;
+        }
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x+y;
-    }
-
 }

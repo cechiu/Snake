@@ -11,3 +11,6 @@ DEPENDENCIES:
 HOW TO START THIS PROJECT:
 AUTHORS:
 USER INSTRUCTIONS:
+
+tutorial we used:
+http://zetcode.com/tutorials/javagamestutorial/snake/
