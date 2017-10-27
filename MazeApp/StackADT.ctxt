@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=item
+comment0.target=void\ push(java.lang.Object)
+comment0.text=\n\ Add\ an\ item\ onto\ the\ stack\n\ @param\ item\ the\ data\ item\ to\ add\ (of\ type\ T)\n
+comment1.params=
+comment1.target=java.lang.Object\ pop()
+comment1.text=\n\ Remove\ the\ top\ item\ from\ the\ stack\n\ @return\ the\ top\ item\ in\ the\ stack\n\ @throws\ NoSuchElementException\ if\ the\ stack\ is\ empty\n
+comment2.params=
+comment2.target=java.lang.Object\ peek()
+comment2.text=\n\ Display\ the\ top\ item\ from\ the\ stack\ without\ removing\ it\n\ @return\ the\ top\ item\ in\ the\ stack\n\ @throws\ NoSuchElementException\ if\ the\ stack\ is\ empty\n
+comment3.params=
+comment3.target=int\ size()
+comment3.text=\n\ Find\ how\ many\ items\ are\ in\ the\ stack\n\ @return\ the\ number\ of\ items\ in\ the\ stack\n
+comment4.params=
+comment4.target=boolean\ isEmpty()
+comment4.text=\n\ Determine\ if\ the\ stack\ is\ empty\n\ @return\ true\ if\ the\ size\ is\ 0,\ false\ otherwise\n
+comment5.params=
+comment5.target=void\ clear()
+comment5.text=\n\ Clear\ out\ the\ data\ structure\n
+numComments=6
