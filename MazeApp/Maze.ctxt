@@ -1,10 +1,20 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Maze()
-comment1.params=fileName
-comment1.target=boolean\ loadMaze(java.lang.String)
-comment2.params=sq
-comment2.target=java.util.ArrayList\ getNeighbors(Square)
-comment3.params=
-comment3.target=Square\ getStart()
-numComments=4
+comment1.params=
+comment1.target=int\ getRows()
+comment2.params=
+comment2.target=int\ getCols()
+comment3.params=fileName
+comment3.target=boolean\ loadMaze(java.lang.String)
+comment4.params=sq
+comment4.target=java.util.ArrayList\ getNeighbors(Square)
+comment5.params=
+comment5.target=Square\ getStart()
+comment6.params=
+comment6.target=Square\ getFinish()
+comment7.params=
+comment7.target=void\ reset()
+comment8.params=
+comment8.target=java.lang.String\ toString()
+numComments=9

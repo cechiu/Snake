@@ -19,6 +19,16 @@ public class Maze
     {
     }
     
+    public int getRows()
+    {
+        return rows;
+    }
+    
+    public int getCols()
+    {
+        return cols;
+    }
+    
     public boolean loadMaze(String fileName)
     {
         //let's create a scanner

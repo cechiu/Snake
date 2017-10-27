@@ -39,6 +39,10 @@ public class Square
         col = c;
         type = t;
         original = t;
+        if (type == space)
+        {
+            state = State.UNEXPLORED;
+        }
         previous = null;
     }
     
@@ -83,7 +87,7 @@ public class Square
             case 3: s = "E"; break;
             
             case 0:
-            switch (State) //alexa plz help me
+            switch (state)
             {
                 case UNEXPLORED: s = "_"; break;
                 case ONLIST: s = "o"; break;

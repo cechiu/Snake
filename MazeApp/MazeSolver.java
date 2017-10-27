@@ -11,7 +11,8 @@ public abstract class MazeSolver
 {
     //private maze variable
     private Maze maze;
-    private abstract MazeSolver workList;
+    private Square end;
+    private MazeSolver workList;
     
     //create an empty worklist
     public abstract void makeEmpty();
@@ -32,18 +33,47 @@ public abstract class MazeSolver
     
     public boolean isSolved()
     {
-        
+        if (this.isEmpty())
+        {
+            return true;
+        }
+        else if (this.getPath().charAt(0) != 'N')
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     
     public String getPath()
     {
-        
+        if (this.isEmpty()) //it isn't solved
+        {
+            return "No path found";
+        }
+        else //it is solved
+        {
+            String path = "[ " + end.getRow() + ", " + end.getCol() + "]";
+            end.getPrevious().state = Square.State.FINALPATH;
+            Square previous = end.getPrevious();
+            path = "[ " + end.getRow() + ", " + end.getCol() + "]";
+            while (previous.getPrevious().getType() != '2')
+            {
+                previous = previous.getPrevious(); //goes to the next earliest all the way back to the start (2)
+                previous.state = Square.State.FINALPATH;
+                path = "[ " + end.getRow() + ", " + end.getCol() + "]";
+            }
+            path = "[ " + maze.getStart().getRow() + ", " + maze.getStart().getCol() + "]";
+            return path;
+        }
     }
     
     public Square step()
     {
         //Is the worklist empty? If so, the exit is unreachable; terminate the algorithm.
-        if (isEmpty)
+        if (this.isEmpty())
         {
             System.out.println("The exit is unreacheable...");
             return null;
@@ -52,8 +82,9 @@ public abstract class MazeSolver
         //Otherwise, grab the "next" location to explore from the worklist.
         //Does the location correspond to the exit square?
         Square current = this.next();
-        if (current.getType == '3')
+        if (current.getType() == '3')
         {
+            end = current;
             return current;
         }
         
@@ -74,13 +105,19 @@ public abstract class MazeSolver
             else
             {
                 testing.setPrevious(current);
+                testing.state = Square.State.ONLIST;
                 this.add(testing);
             }
         }
+        return current;
     }
     
     public void solve()
     {
-        
+        Square test = this.step();
+        while (test.getType() != '3')
+        {
+            test = this.step();
+        }
     }
 }
