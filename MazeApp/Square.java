@@ -76,7 +76,7 @@ public class Square
         type = original;
     }
     
-    public String toString()
+    public String toString() //if it goes badly, return string// if not, keep going
     {
         String s = "no nonononn nO";
         
