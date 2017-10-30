@@ -26,13 +26,25 @@ public abstract class MazeSolver
     //return the "next" item from the worklist
     public abstract Square next();
     
+    //constructor
     public MazeSolver(Maze m)
     {
         maze = m;
+        makeEmpty();
+        add(maze.getStart());
     }
     
     public boolean isSolved()
     {
+        ArrayList<Square> checkNeighbors = maze.getNeighbors(end); //checks to see if any space around the end space is explored
+        boolean yesaround = false;
+        for (int count = 0; count < checkNeighbors.size(); count++)
+        {
+            if (checkNeighbors.get(count).state == Square.State.EXPLORED) //if there is a space around it that is 'o'
+            {
+                yesaround = true;
+            }
+        }
         if (this.isEmpty())
         {
             return true;
@@ -51,7 +63,7 @@ public abstract class MazeSolver
     {
         if (this.isEmpty()) //it isn't solved
         {
-            return "No path found";
+            return "No path found"; //no way to get out of maze
         }
         else //it is solved
         {

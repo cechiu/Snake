@@ -78,7 +78,7 @@ public class Square
     
     public String toString()
     {
-        String s = "NOPEEE";
+        String s = "no nonononn nO";
         
         switch (type)
         {
