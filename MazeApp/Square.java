@@ -33,7 +33,11 @@ public class Square
         col = c;
         type = t;
         original = t;
+<<<<<<< HEAD
         if (type == '0')
+=======
+        if (type == space)
+>>>>>>> aba2ba7c4ac50c17be7b4a273d6fd8c7f4579043
         {
             state = State.UNEXPLORED;
         }
@@ -70,9 +74,9 @@ public class Square
         type = original;
     }
     
-    public String toString()
+    public String toString() //if it goes badly, return string// if not, keep going
     {
-        String s = "NOPEEE";
+        String s = "no nonononn nO";
         
         switch (type)
         {
@@ -80,7 +84,11 @@ public class Square
             case '2': s = "S"; break;
             case '3': s = "E"; break;
             
+<<<<<<< HEAD
             case '0':
+=======
+            case 0:
+>>>>>>> aba2ba7c4ac50c17be7b4a273d6fd8c7f4579043
             switch (state)
             {
                 case UNEXPLORED: s = "_"; break;

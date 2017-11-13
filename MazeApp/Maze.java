@@ -18,17 +18,29 @@ public class Maze
     public Maze()
     {
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> aba2ba7c4ac50c17be7b4a273d6fd8c7f4579043
     public int getRows()
     {
         return rows;
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> aba2ba7c4ac50c17be7b4a273d6fd8c7f4579043
     public int getCols()
     {
         return cols;
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> aba2ba7c4ac50c17be7b4a273d6fd8c7f4579043
     public boolean loadMaze(String fileName)
     {
         /*

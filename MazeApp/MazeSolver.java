@@ -13,6 +13,7 @@ public abstract class MazeSolver
     private Maze maze;
     private Square end;
     private MazeSolver workList;
+<<<<<<< HEAD
     private boolean isFound;
     
     //constructor
@@ -24,6 +25,8 @@ public abstract class MazeSolver
         this.add(maze.getStart());
         end = maze.getFinish();
     }
+=======
+>>>>>>> aba2ba7c4ac50c17be7b4a273d6fd8c7f4579043
     
     //create an empty worklist
     public abstract void makeEmpty();
@@ -37,13 +40,48 @@ public abstract class MazeSolver
     //return the "next" item from the worklist
     public abstract Square next();
     
+<<<<<<< HEAD
     public boolean isSolved()
     {
         return (this.isFound || this.isEmpty());
+=======
+    //constructor
+    public MazeSolver(Maze m)
+    {
+        maze = m;
+        makeEmpty();
+        add(maze.getStart());
+    }
+    
+    public boolean isSolved()
+    {
+        ArrayList<Square> checkNeighbors = maze.getNeighbors(end); //checks to see if any space around the end space is explored
+        boolean yesaround = false;
+        for (int count = 0; count < checkNeighbors.size(); count++)
+        {
+            if (checkNeighbors.get(count).state == Square.State.EXPLORED) //if there is a space around it that is 'o'
+            {
+                yesaround = true;
+            }
+        }
+        if (this.isEmpty())
+        {
+            return true;
+        }
+        else if (this.getPath().charAt(0) != 'N')
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+>>>>>>> aba2ba7c4ac50c17be7b4a273d6fd8c7f4579043
     }
     
     public String getPath()
     {
+<<<<<<< HEAD
         //if it isn't solved
         if (!this.isSolved())
         {
@@ -69,6 +107,25 @@ public abstract class MazeSolver
                 path = "[" + previous.getRow() + "," + previous.getCol() + "]" + path;
             }
             path = "[" + maze.getStart().getRow() + "," + maze.getStart().getCol() + "]" + path;
+=======
+        if (this.isEmpty()) //it isn't solved
+        {
+            return "No path found"; //no way to get out of maze
+        }
+        else //it is solved
+        {
+            String path = "[ " + end.getRow() + ", " + end.getCol() + "]";
+            end.getPrevious().state = Square.State.FINALPATH;
+            Square previous = end.getPrevious();
+            path = "[ " + end.getRow() + ", " + end.getCol() + "]";
+            while (previous.getPrevious().getType() != '2')
+            {
+                previous = previous.getPrevious(); //goes to the next earliest all the way back to the start (2)
+                previous.state = Square.State.FINALPATH;
+                path = "[ " + end.getRow() + ", " + end.getCol() + "]";
+            }
+            path = "[ " + maze.getStart().getRow() + ", " + maze.getStart().getCol() + "]";
+>>>>>>> aba2ba7c4ac50c17be7b4a273d6fd8c7f4579043
             return path;
         }
     }
@@ -87,8 +144,11 @@ public abstract class MazeSolver
         Square current = this.next();
         if (current.getType() == '3')
         {
+<<<<<<< HEAD
             this.isFound = true;
             this.getPath();
+=======
+>>>>>>> aba2ba7c4ac50c17be7b4a273d6fd8c7f4579043
             end = current;
             return current;
         }
