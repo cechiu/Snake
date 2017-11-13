@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=m
+comment0.target=MazeSolverQueue(Maze)
+comment1.params=
+comment1.target=void\ makeEmpty()
+comment2.params=
+comment2.target=boolean\ isEmpty()
+comment3.params=sq
+comment3.target=void\ add(Square)
+comment4.params=
+comment4.target=Square\ next()
+numComments=5

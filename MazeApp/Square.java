@@ -7,24 +7,18 @@ public class Square
 {
     public enum State
     {
-        UNEXPLORED, //_
-        ONLIST, //o
-        EXPLORED, //.
-        FINALPATH, //x
-    }
+        UNEXPLORED, //'_'
+        ONLIST, //'o'
+        EXPLORED, //'.'
+        FINALPATH, //'x'
+     }
     
     //enum
     State state;
     
     //type of square
     int type;
-    static int original;
-    
-    //defining four types
-    int space = 0;
-    int wall = 1;
-    int start = 2;
-    int end = 3;
+    int original;
     
     //where is this square?
     int row;
@@ -39,6 +33,10 @@ public class Square
         col = c;
         type = t;
         original = t;
+        if (type == '0')
+        {
+            state = State.UNEXPLORED;
+        }
         previous = null;
     }
     
@@ -78,12 +76,12 @@ public class Square
         
         switch (type)
         {
-            case 1: s = "#"; break;
-            case 2: s = "S"; break;
-            case 3: s = "E"; break;
+            case '1': s = "#"; break;
+            case '2': s = "S"; break;
+            case '3': s = "E"; break;
             
-            case 0:
-            switch (State) //alexa plz help me
+            case '0':
+            switch (state)
             {
                 case UNEXPLORED: s = "_"; break;
                 case ONLIST: s = "o"; break;
@@ -92,6 +90,6 @@ public class Square
             }
         }
         
-        return s;    
+        return s;
     }
 }

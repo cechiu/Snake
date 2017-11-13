@@ -28,7 +28,7 @@ public class MyStack<T> implements StackADT<T>
         }
         else
         {
-            return data.remove(data.size());
+            return data.remove(data.size()-1);
         }
     }
     

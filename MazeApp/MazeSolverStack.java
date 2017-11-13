@@ -6,35 +6,36 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MazeSolverStack
+public class MazeSolverStack extends MazeSolver
 {
-    /** description of instance variable x (add comment for each instance variable) */
-    private int x;
-
-    /**
-     * Default constructor for objects of class MazeSolverStack
-     */
-    public MazeSolverStack()
+    private Maze maze;
+    private Square end;
+    private MyStack<Square> workList;
+    
+    //constructor
+    public MazeSolverStack(Maze m)
     {
-        // initialise instance variables
-        x = 0;
+        super(m);
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
-     */
-    public int sampleMethod(int y)
+    
+    //create an empty worklist
+    public void makeEmpty()
     {
-        // put your code here
-        return x+y;
+        workList = new MyStack<Square>();
     }
-
+    
+    public boolean isEmpty()
+    {
+        return workList.isEmpty();
+    }
+    
+    public void add(Square sq)
+    {
+        workList.push(sq);
+    }
+    
+    public Square next()
+    {
+        return workList.pop();
+    }
 }
